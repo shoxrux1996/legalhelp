@@ -1,0 +1,142 @@
+.question-type span a{
+    font-size: 18px;
+    margin-right: 20px;
+    color: #1F2746;
+}
+
+.question-type .active-type a{
+    font-size: 24px;
+    border-bottom: 1px dashed #18BB9B;
+    font-weight: bold;
+    color: #18BB9B;
+}
+
+/* Search */
+#search{
+    margin-bottom: 10px;
+}
+#search .btn{
+    border-radius: 0;
+    background-color: #1F2746;
+    color: #fff;
+}
+
+
+#search .btn:hover{
+    color: #18BB9B;
+}
+
+#search .btn, #search input{
+    border-color: #1F2746;
+}
+
+#search .dropdown-menu{
+    border-radius: 0;
+}
+
+#search .dropdown-menu li a{
+    padding: 10px;
+}
+
+.answer{
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    margin-bottom: 20px;
+}
+
+.answer .answer-header img{
+    width: 128px;
+    float: left;
+    margin-right: 10px;
+}
+
+.answer .answer-content{
+    padding: 10px;
+    font-family: "Open Sans"!important;
+    font-size: 14px!important;
+
+}
+
+
+
+.answer hr{
+    margin: 10px 0;
+    margin-bottom: 0;
+}
+
+.answer .answered-time{
+    font-weight: 600;
+    color: #5e5d5d;
+}
+
+@media (max-width: 767px){
+
+    #wrapper{
+        padding: 10px;
+    }
+
+    .question{
+        padding: 10px;
+    }
+
+    .question-type a{
+        font-size: 16px;
+    }
+
+    .question-type .active-type a{
+        font-size: 22px;
+    }
+}
+
+
+/* Fee sharing */
+.answer .fee-sharing .fee-sharing-text, .answer .fee-sharing .fee-sharing-action, .answer .fee-sharing .yes-helpful-answer{
+    padding: 10px;
+}
+
+.answer .fee-sharing-text .no-helpful-answer{
+    color: #D75453;
+}
+
+.answer .yes-helpful-answer{
+    color: #60B660;
+}
+
+.answer .fee-sharing .fee-sharing-action b{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.answer .fee-sharing .fee-sharing-action input{
+    display: inline-block;
+    width: 10%;
+    font-weight: bold;
+}
+
+.fee-sharing .fixed-bottom-info{
+    background-color: #202846;
+    padding: 10px;
+    color: #fff;
+}
+
+.fee-sharing .fixed-bottom-info p{
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.answer .shared-fee-value{
+    font-size: 16px;
+    background-color: #28BA9B;
+    padding: 5px 10px 10px 5px;
+    margin-left: -10px;
+    color: white!important;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.question .shared-fee-value span{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 10px;
+}
