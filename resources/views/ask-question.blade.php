@@ -10,6 +10,7 @@
     <!-- Content -->
     <div id="wrapper">
         <div class="container">
+
             <h3><b>Задайте свой вопрос юристу</b></h3>
 
             <!-- How does it work ? -->
@@ -24,7 +25,8 @@
                 </div>
                 <div class="col-sm-3 text-info">
                     <h5 class="text-info"><span class="label label-info">2</span> Получите ответы</h5>
-                    <p>На вопросы круглосуточно отвечают юристы со всей Узбекистана. Среднее время ответа — 15 минут.</p>
+                    <p>На вопросы круглосуточно отвечают юристы со всей Узбекистана. Среднее время ответа — 15
+                        минут.</p>
                 </div>
                 <div class="col-sm-3 text-success">
                     <h5 class="text-success"><span
@@ -47,7 +49,10 @@
                                     <strong>{{ $errors->first('category') }}</strong>
                                 </span>
                             @endif
-                            {{Form::select('category', $categories, old('category'), ['class'=>'form-control general-input', 'placeholder'=>''])}}
+                            <select class="form-control general-input" name="category">
+                                <option>New One</option>
+                            </select>
+                            {{--{{Form::select('category', $categories, old('category'), ['class'=>'form-control general-input', 'placeholder'=>''])}}--}}
                         </div>
                         <div class="form-group{{$errors->has('title') ? ' has-error' : '' }} ">
                             <label for="question">Ваш вопрос*</label>
@@ -70,6 +75,7 @@
                             <textarea class="form-control general-input" rows="15" id="description"
                                       name="description">{{old('description')}}</textarea>
                         </div>
+                        <button type="submit" class="btn btn-default blue-button btn-lg">Опубликовать вопрос</button>
                         {{--<div class="form-group">
                             <label>@lang('question.Если нужно, прикрепите файл')</label>
                             <label class="btn btn-default general-input">
@@ -90,99 +96,99 @@
                 <!-- /Question submit form -->
 
 
-            {{--    <!-- Price table -->
-                <div class="row price-table">
-                    <div class='wrapper'>
-                        <div class='package col-sm-4'>
+                {{--    <!-- Price table -->
+                    <div class="row price-table">
+                        <div class='wrapper'>
+                            <div class='package col-sm-4'>
 
-                            <input type="radio" name="type" id="standart-price" value="1"/>
-                            <div class='name'>
-                                <label for="standart-price">@lang('question.Стандартная')</label>
-                            </div>
-                            <div class='price'>5000 @lang('question.сум')</div>
-                            <hr>
-                            <ul>
-                                <li>
-                                    @lang('question.Моментальная публикация вопроса')
-                                </li>
-                                <li>
-                                    @lang('question.Гарантия обязательного базового ответа юриста')
-                                </li>
-                            </ul>
-                        </div>
-                        <div class='package brilliant col-sm-4'>
-                            <input type="radio" name="type" id="vip-price" value="2"/>
-                            <div class='name'>
-                                <label for="vip-price">@lang('question.VIP-консультация')</label>
-                            </div>
-                            <div class='price'>@lang('question.от') 25000 @lang('question.сум')</div>
-                            <span>@lang('question.Стоимость вы устанавливаете сами')</span>
-                            <hr>
-                            <label>Savolni bekitish</label>
-                            <input type="checkbox" value="1" name="disable">
-                            <ul>
-                                <li>
-                                    @lang('question.Моментальная публикация вопроса')
-                                </li>
-                                <li>
-                                    @lang('question.Гарантия полного и подробного разбора ситуации')
-                                </li>
-                                <li>
-                                    @lang('question.Мнения нескольких юристов')
-                                </li>
-                                <li>
-                                    @lang('question.Первый ответ в течение 15 минут')
-                                </li>
-                                <li>
-                                    @lang('question.Неограниченное количество дополнительных вопросов, уточнений')
-                                </li>
-                                <li>
-                                    @lang('question.Возможность скрыть вопрос от других пользователей и поисковых систем')
-                                </li>
-                            </ul>
-                        </div>
-                        <div class='package col-sm-4'>
-                            <input type="radio" name="type" id="free-price" value="0" checked/>
-                            <div class='name'>
-                                <label for="free-price">@lang('question.Бесплатная')</label>
-                            </div>
-                            <div class='price'>0 @lang('question.сум')</div>
-                            <hr>
-                            <ul>
-                                <li>
-                                    @lang('question.Публикация вопроса в порядке очереди')
-                                </li>
-                                <li>
-                                    @lang('question.Гарантии ответа нет')
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-default blue-button btn-lg">Опубликовать вопрос</button>
-                    <!-- Modal for paid questions-->
-                    <div id="paid-questions-modal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">@lang('index.soon')!!!</h4>
+                                <input type="radio" name="type" id="standart-price" value="1"/>
+                                <div class='name'>
+                                    <label for="standart-price">@lang('question.Стандартная')</label>
                                 </div>
-                                <div class="modal-body">
-                                    <img src="{{asset('dist/images/under-development.png')}}" alt="Under development"/>
-                                    <h4>Функция "платные вопросы" в процессе разработки</h4>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default btn-dark-blue"
-                                            data-dismiss="modal">@lang('index.close')</button>
-                                </div>
+                                <div class='price'>5000 @lang('question.сум')</div>
+                                <hr>
+                                <ul>
+                                    <li>
+                                        @lang('question.Моментальная публикация вопроса')
+                                    </li>
+                                    <li>
+                                        @lang('question.Гарантия обязательного базового ответа юриста')
+                                    </li>
+                                </ul>
                             </div>
+                            <div class='package brilliant col-sm-4'>
+                                <input type="radio" name="type" id="vip-price" value="2"/>
+                                <div class='name'>
+                                    <label for="vip-price">@lang('question.VIP-консультация')</label>
+                                </div>
+                                <div class='price'>@lang('question.от') 25000 @lang('question.сум')</div>
+                                <span>@lang('question.Стоимость вы устанавливаете сами')</span>
+                                <hr>
+                                <label>Savolni bekitish</label>
+                                <input type="checkbox" value="1" name="disable">
+                                <ul>
+                                    <li>
+                                        @lang('question.Моментальная публикация вопроса')
+                                    </li>
+                                    <li>
+                                        @lang('question.Гарантия полного и подробного разбора ситуации')
+                                    </li>
+                                    <li>
+                                        @lang('question.Мнения нескольких юристов')
+                                    </li>
+                                    <li>
+                                        @lang('question.Первый ответ в течение 15 минут')
+                                    </li>
+                                    <li>
+                                        @lang('question.Неограниченное количество дополнительных вопросов, уточнений')
+                                    </li>
+                                    <li>
+                                        @lang('question.Возможность скрыть вопрос от других пользователей и поисковых систем')
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class='package col-sm-4'>
+                                <input type="radio" name="type" id="free-price" value="0" checked/>
+                                <div class='name'>
+                                    <label for="free-price">@lang('question.Бесплатная')</label>
+                                </div>
+                                <div class='price'>0 @lang('question.сум')</div>
+                                <hr>
+                                <ul>
+                                    <li>
+                                        @lang('question.Публикация вопроса в порядке очереди')
+                                    </li>
+                                    <li>
+                                        @lang('question.Гарантии ответа нет')
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
+                        <!-- Modal for paid questions-->
+                        <div id="paid-questions-modal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">@lang('index.soon')!!!</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{asset('dist/images/under-development.png')}}" alt="Under development"/>
+                                        <h4>Функция "платные вопросы" в процессе разработки</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default btn-dark-blue"
+                                                data-dismiss="modal">@lang('index.close')</button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+                        <!-- /Modal for paid questions-->
                     </div>
-                    <!-- /Modal for paid questions-->
-                </div>
-                <!-- /Price table -->--}}
+                    <!-- /Price table -->--}}
             </form>
         </div>
     </div>

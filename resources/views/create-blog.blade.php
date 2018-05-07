@@ -1,15 +1,7 @@
 @extends('layouts.app')
 @section('styles')
-    {!! Html::style('css/select2.min.css') !!}
+
     <link href="{{ asset('dist/css/client.css')}}" rel="stylesheet">
-@endsection
-@section('menu')
-    <li><a href="{{ route('home')}}">Главная</a></li>
-    <li><a href="{{ route('lawyers.list')}}">Юристы</a></li>
-    <li><a href="{{ route('question.list')}}">Вопросы</a></li>
-    <li><a href="{{ route('web.blogs')}}">Блог</a></li>
-    <li><a href="{{ route('how-works')}}">Как это работает</a></li>
-    <li><a href="{{ route('about')}}">О нас</a></li>
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -18,7 +10,7 @@
                 <h2>Блог</h2>
             </div>
             <div class="panel-body">
-                <form role="form" method="POST" action="{{ route('create.blog') }}" enctype="multipart/form-data">
+                <form role="form" method="POST" action="$" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     @if ($errors->has('title'))
@@ -28,7 +20,7 @@
                     @endif
 
                     <div class="form-group">
-                        {{ Form::label('title', 'Title:')}}
+                        <lable>Title</lable>
                         <input type="text" name='title' value='' class="form-control"/>
                     </div>
                     @if ($errors->has('image'))
@@ -38,13 +30,10 @@
                     @endif
                     <div class="panel panel-footer col-md-12 ">
                         <div class="col-md-4 "  >
-                            {{ Form::label('image', 'Image:')}}
+                            <label for=""> Image</label>
                             <div class="" style="padding-top: 40px;">
                                 <input  type='file' name="image" onchange="readURL(this); "  />
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <img id="blah" src="#" alt="your image" style="width: 500px; height: 200px;"  />
                         </div>
                     </div>
                     @if ($errors->has('text'))
@@ -68,7 +57,6 @@
     </div>
 @endsection
 @section('scripts')
-    {!! Html::script('js/select2.js') !!}
     <script type="text/javascript">
         $(".js-example-basic-multiple").select2();
     </script>

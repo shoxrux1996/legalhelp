@@ -21,28 +21,15 @@
         <div class="row ask-form">
             <h4>Ваш вопрос</h4>
             <div class="col-sm-7">
-                <form action="{{ route('document.store')}}" method="post" enctype="multipart/form-data">
+                <form action="#" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                    <div class="row">
-                        @foreach($types as $key => $value)
-                        <div class="col-sm-6">
-                            @if($key == 1)
-                                <input type="radio" name="docType" value="{{$key}}" checked onclick="handler(this.value)"/>
-                                <label for="{{$key}}">{{$value}}</label>
-                                <p>{{$definitions[$key]}}</p>
-                             @endif
-                             @if($key != 1)
-                                <input type="radio" name="docType" value="{{$key}}" onclick="handler(this.value)"/>
-                                <label for="{{$key}}">{{$value}}</label>
-                                <p>{{$definitions[$key]}}</p>  
-                            @endif            
-                        </div>
-                        @endforeach
-                    </div>
-                    <br />
+
                     <div class="form-group">
                         <label for="document-type">Тип документа</label>
-                        {{Form::select('subType', $default_options, null, ['class'=>'form-control general-input', 'id'=>'subType'])}}
+                        <select class="form-control general-input">
+                            <option>sdsada</option>
+                            <option>odaosdosao</option>
+                        </select>
                     </div>
                     <div class="form-group{{$errors->has('title') ? ' has-error' : '' }}">
                         <label for="question">Мне нужно</label>
@@ -123,11 +110,5 @@
 
 @endsection
 @section('scripts')
-<script>
-    var subtypes = {!!json_encode($subtypes, JSON_PRETTY_PRINT) !!}
-        console.log(subtypes)
-    var parents = {!!json_encode($parents, JSON_PRETTY_PRINT) !!}
-        console.log(parents)
-</script>
-{!! Html::script('js/document.js') !!}
+
 @endsection

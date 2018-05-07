@@ -18,7 +18,7 @@
             </div>
         </div>
         <!-- /Info -->
-        <form method="post" action="{{ route('call.store')}}" enctype="multipart/form-data">
+        <form method="post" action="#" enctype="multipart/form-data">
        {{-- <!-- Consulting type -->
             <div class="row price-table">
                 <h4><b>Тип консультации</b></h4>
