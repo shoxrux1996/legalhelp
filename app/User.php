@@ -13,7 +13,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-       'email',
+       'Email',
     ];
 
     /**
@@ -24,5 +24,9 @@ class User extends Model
 
     public function client(){
         return $this->hasOne('App\Client','Email','Email');
+    }
+    public function commentedBlog(){
+        return $this->belongsToMany('App\Blog','Comments','Email','Id','Email','Id')
+            ->withPivot('Text');
     }
 }

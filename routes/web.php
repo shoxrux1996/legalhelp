@@ -13,8 +13,10 @@
 
 Route::get('/', function () {
 
-    $users = App\Client::all();
-    dd($users[0]->user);
+    $blogs = App\User::all();
+
+//    dd($blogs[0]->client->questions[0]->answers[0]->lawyer->user);
+    dd($blogs[0]->client->orders[0]->call->lawyers);
 //    return view('welcome');
 });
 
