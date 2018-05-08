@@ -40,7 +40,7 @@
             <div class="tab-content">
                 <div id="menu1" class="tab-pane fade in active">
                     <h4>Your account</h4>
-                    <form id="login-form" role="form" method="POST" action="{{ route('user.login') }}">
+                    <form id="login-form" role="form" method="POST" action="{{ route('user.login.submit') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ ($errors->has('email') || $errors->has('wrong-attempt')) ? ' has-error' : '' }}">
                             <label for="username"><i class="fa fa-user-circle" aria-hidden="true"></i> Email</label>

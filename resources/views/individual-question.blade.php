@@ -8,43 +8,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
-                    <ol class="breadcrumb">
-                        <li><a href="">Недвижимость</a></li>
-                        <li class="active">Жилищное право</li>
-                    </ol>
-
-                    <div class="question">
-                        <h4 class="title">На что можно рассчитывать при сносе ветхого жилья (социальный найм) в случае
-                            расселения застройщиком</h4>
-                        <p class="description">Добрый день. Наш дом попал в программу адресного расселения ветхого
-                            жилья. Квартира находится в очень хорошем районе, почти центр города.в частично
-                            благоустроенном двухквартирном доме (только центр. отопление), 36кв. м., 3 комнаты, по
-                            договору. Добрый день. Наш дом попал в программу адресного расселения ветхого жилья.</p>
-                        <p>
-                            <span class="date">10 Июля 2017, 06:38, </span>
-                            <span class="number"> вопрос №1691463</span>
-                            <span class="author">Бредун Светлана, г. Хабаровск </span>
-                        </p>
-                        <hr>
-                        <p>
-                            <span class="category">Категория: <a href="#">Жилищное право</a></span>
-                        </p>
-                    </div>
+                    <h4 class="title"><a href="{{route('show.question',[$question->Email, $question->Title])}}">{{$question->Title}}</a></h4>
+                    <p class="description">{{$question->Text}}
+                    <p>
+                        <span class="date">{{$question->Date}}</span>
+                        <span class="author">{{$question->client->Fname}} {{$question->client->Lname}} {{$question->client->Mname}}</span>
+                    </p>
+                    <hr>
+                    <p>
+                        <span class="category">Category: <a >{{$question->category->Title}}</a></span>
+                    </p>
                 </div>
             </div>
             <div class="row">
-                <h3>Ответы</h3>
+                <h3>Answers</h3>
                 <!-- Comment news style -->
-
+                @foreach($question->answers as $answer)
                 <div class="col-sm-9 answer">
-                    <div class="answer-footer">
-                                    <span class="pull-right answered-time">
-                                        2018-5-5
-                                    </span>
-                    </div>
                     <div class="answer-header">
-                        <h4 class="lawyer-name">Shokhrukh Shomakhmudov</h4>
-                        <h6 class="lawyer-type">lawyer</h6>
+                        <h4 class="lawyer-name">{{$answer->lawyer->Fname}} {{$answer->lawyer->Mname}} {{$answer->lawyer->Lname}}</h4>
+                        <h6 class="lawyer-type">{{$answer->lawyer->job_status}}</h6>
                     </div>
                     <div class="clearfix">
                     </div>
@@ -52,11 +35,11 @@
                         <hr>
                     </div>
                     <div class="answer-content">
-                        sadkask dajdjakdjkajdjksjakdjkajdjskjakdj jsakjdjaskdjkjaskdjaskjk
+                       {{$answer->Text}}
                     </div>
 
                 </div>
-
+                @endforeach
 
                 <!-- /Comment new style -->
             </div>
